@@ -1,3 +1,15 @@
+C
+C  slatec_3j_f77.f
+C  slatec.git
+C
+C  This file contains an extract of the huge Slatec library that allows the user
+C  to compute just the 3J and 6J Wigner Symbols (which are closely related to the
+C  Clebsch-Gordan and Racah W-coefficients, respectively), the Airy functions and
+C  the Bessel functions, both regular and spherical.
+C
+C  The original SLATEC library is hosted on Netlib:
+C  http://www.netlib.org/slatec/index.html
+
 
 *DECK DRC3JJ
       SUBROUTINE DRC3JJ (L2, L3, M2, M3, L1MIN, L1MAX, THRCOF, NDIM,

@@ -1,7 +1,16 @@
-! ===========================
-! = MODIFICATIONS TO DRC3JM =
-! ===========================
-!  * Added some debug printing
+!
+!  slatec_3j_f90.f90
+!  slatec.git
+!
+!  This file contains an extract of the huge Slatec library that allows the user
+!  to compute just the 3J and 6J Wigner Symbols, which are closely related to the
+!  Clebsch-Gordan and Racah W-coefficients, respectively.
+!
+!  This is part the Fortran90 version of the SLATEC library, which was kindly
+!  ported from the Fortran77 original by John Burkardt, which I thank. The F90
+!  port can be found at http://people.sc.fsu.edu/~jburkardt/f_src/slatec/slatec.html,
+!  while the original F77 version is hosted on Netlib:
+!  http://www.netlib.org/slatec/index.html
 
 subroutine DRC3JM (L1, L2, L3, M1, M2MIN, M2MAX, THRCOF, NDIM, &
      IER)

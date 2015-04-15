@@ -1,5 +1,25 @@
-#include "slatec_c_interface.h"
+/**
+ *
+ * C interface to some of the Fortran functions contained in the SLATEC
+ * mathematical library. So far, we have implemented functions to efficiently compute
+ * the Wigner 3J and 6J symbols (which are closely related to the Clebsch-Gordan
+ * coefficients and to the Racah W-coefficients, respectively) and the Bessel functions,
+ * both regular and spherical.
+ *
+ * Each function in this file is a wrapper to the corresponding Fortran function, which
+ * is called directly in the C code. This is possible because the object code produced
+ * by the Fortran and C compilers is compatible.
+ *
+ * The original SLATEC (Sandia, Los Alamos, Air Force Weapons Laboratory) library was
+ * written in F77 by the US military in the 70's, and can be found on
+ * http://www.netlib.org/slatec. A Fortran90 version can be found on John Burkardt's homepage
+ * (http://people.sc.fsu.edu/~jburkardt/f_src/slatec/slatec.html).
+ *
+ * Created by Guido Walter Pettinari on 2014.02.14.
+ *
+ */
 
+#include "slatec_c_interface.h"
 
 
 // ==============================================================================

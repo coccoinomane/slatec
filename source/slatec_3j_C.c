@@ -1,15 +1,18 @@
 /**
- * Translation to C of the DRC3JM, DRC3JJ, DRC6J functions to compute 3j and 6j symbols
- * (which are closely related to the Clebsch-Gordan coefficients) from the SLATEC
- * Fortran library. No automatic tools like f2c and fable were used in the process:
- * it was all painstakingly done by hand.
+ *
+ * Translation to C of the functions DRC3JM, DRC3JJ, DRC6J from the Fortran SLATEC mathematical
+ * library. These functions efficiently compute the Wigner 3J and 6J symbols, which are
+ * closely related to the Clebsch-Gordan coefficients and to the Racah
+ * W-coefficients, respectively. No automatic tools like f2c and fable were used in
+ * the Fortran-to-C translation process: it was all painstakingly done by hand.
  *
  * The original SLATEC (Sandia, Los Alamos, Air Force Weapons Laboratory) library was
  * written in F77 by the US military in the 70's, and can be found on
  * http://www.netlib.org/slatec. A F90 version can be found on John Burkardt's homepage
  * (http://people.sc.fsu.edu/~jburkardt/f_src/slatec/slatec.html).
  *
- * Guido Walter Pettinari (coccoinomane@gmail.com) on 14.02.2014.
+ * Created by Guido Walter Pettinari on 2014.02.14.
+ *
  */
 
 #include "slatec_3j_C.h"

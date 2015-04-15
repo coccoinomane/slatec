@@ -1,4 +1,3 @@
-
 ## Compiler and flags
 CC = gcc
 CFLAGS = -I/opt/local/include/ -g
@@ -10,20 +9,17 @@ FC = gfortran
 FFLAGS = -g
 
 ## PATHS
-INCLUDES = -I..
-vpath %.c .:..
-vpath %.f90 .:..
-vpath %.f .:..
-vpath %.o .:..
-
+INCLUDES = -I../source
+vpath %.c .:..:../source
+vpath %.f90 .:..:../source
+vpath %.f .:..:../source
+vpath %.o .:..:../source
 
 ## Implicit rules
 %.o:  %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $*.o
-
 %.o:  %.f90
 	$(FC) $(FFLAGS) $(INCLUDES) -c $< -o $*.o
-
 %.o:  %.f
 	$(FC) $(FFLAGS) $(INCLUDES) -c $< -o $*.o
 
@@ -37,35 +33,25 @@ TEST_DBES_F90 = test_dbes.o slatec_3j_f90.o
 TEST_BES_F90 = test_bes.o slatec_3j_f90.o
 TEST_3J_GSL = test_3j_gsl.o
 
-
 ## Rules
 all: test_3j_gsl test_3j_m_f77 test_3j_m_f90 test_3j_l_f90 test_6j_f90 test_3j_l_cwrapper test_bes_f90 test_dbes_f90 
 default: test_3j_l
 
 test_3j_m_f77: $(TEST_3J_M_F77)
 	$(CC) $(FORTRAN_LDFLAGS) -o $@ $^
-
 test_3j_m_f90: $(TEST_3J_M_F90)
 	$(CC) $(FORTRAN_LDFLAGS) -o $@ $^
-
 test_3j_l: $(TEST_3J_L)
 	$(CC) $(FORTRAN_LDFLAGS) -o $@ $^
-
 test_6j_f90: $(TEST_6J_L_F90)
 	$(CC) $(FORTRAN_LDFLAGS) -o $@ $^
-
 test_3j_l_cwrapper: $(TEST_3J_L_CWRAPPER)
 	$(CC) $(FORTRAN_LDFLAGS) -o $@ $^
-
 test_dbes_f90: $(TEST_DBES_F90)
 	$(CC) $(FORTRAN_LDFLAGS) -o $@ $^
-
 test_bes_f90: $(TEST_BES_F90)
 	$(CC) $(FORTRAN_LDFLAGS) -o $@ $^
-
 test_3j_gsl: $(TEST_3J_GSL)
 	$(CC) $(GSL_LDFLAGS) -o $@ $^
-
-
 clean:
 	rm -rf *.o
